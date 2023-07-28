@@ -65,6 +65,7 @@
   "CyberArk",
   "CyberArkEPM",
   "CyberpionSecurityLogs",
+  "CynerioSecurityEvents",
   "DDOS",
   "DNS",
   "Darktrace",
@@ -108,6 +109,7 @@
   "MicrosoftSysmonForLinux",
   "MicrosoftThreatProtection",
   "MorphisecUTPP",
+  "NasuniEdgeAppliance",
   "NXLogDnsLogs",
   "NXLogLinuxAudit",
   "Netskope",
@@ -189,5 +191,8 @@
   "DynatraceAttacks",
   "DynatraceAuditLogs",
   "DynatraceProblems",
-  "MicrosoftDefenderThreatIntelligence"
+  "MicrosoftDefenderThreatIntelligence",
+  "MimecastAuditAPI",
+  "MimecastTTPAPI",
+  "MimecastSIEMAPI"
 ]

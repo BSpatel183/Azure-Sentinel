@@ -105,7 +105,7 @@ class RequestHelper:
             date=hdr_date, req_id=self.request_id, uri=request_uri, app_key=self.app_key
         )
         hmac_sha1 = hmac.new(
-            base64.b64decode(self.secret_key), unsigned_auth_header.encode(), digestmod=hashlib.sha1
+            base64.b64decode(self.secret_key), unsigned_auth_header.encode(), digestmod=hashlib.md5
         ).digest()
         sig = base64.encodebytes(hmac_sha1).rstrip()
         headers = {

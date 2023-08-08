@@ -37,7 +37,9 @@
   "BehaviorAnalytics",
   "BeyondSecuritybeSECURE",
   "Bitglass",
+  "BitSight",
   "BlackberryCylancePROTECT",
+  "BloodHoundEnterprise",
   "BoschAIShield",
   "BoxDataConnector",
   "BroadcomSymantecDLP",
@@ -192,7 +194,5 @@
   "DynatraceAuditLogs",
   "DynatraceProblems",
   "MicrosoftDefenderThreatIntelligence",
-  "MimecastAuditAPI",
-  "MimecastTTPAPI",
-  "MimecastSIEMAPI"
+  "CortexXDR"
 ]

@@ -126,7 +126,7 @@ class Utils:
             "ConnectionString": consts.CONNECTION_STRING,
             "Schedule": consts.SCHEDULE,
             "Cofense_username": consts.COFENSE_USERNAME,
-            "Cofense_password": consts.COFENSE_PASSWORD,
+            "Cofense_password": self.f.encrypt(consts.COFENSE_PASSWORD),
             "LogLevel": consts.LOG_LEVEL,
             "WorkspaceID": consts.WORKSPACE_ID,
             "WorkspaceKey": consts.WORKSPACE_KEY,

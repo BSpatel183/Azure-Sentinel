@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "metadata": {
     "author": "SecurityScorecard - integrations@securityscorecard.io",
-    "comments": "Solution template for SecurityScorecard Cybersecurity Ratings"
+    "comments": "Solution template for SecurityScorecard"
   },
   "parameters": {
     "location": {
@@ -38,12 +38,12 @@
     }
   },
   "variables": {
-    "solutionId": "SecurityScorecard.SecurityScorecard",
+    "solutionId": "SecurityScorecard.SecurityScorecardRatings, SecurityScorecardFactors, SecurityScorecardIssues",
     "_solutionId": "[variables('solutionId')]",
     "email": "integrations@securityscorecard.io",
     "_email": "[variables('email')]",
     "workbookVersion1": "1.0.0",
-    "workbookContentId1": "SecurityScorecardWorkbook",
+    "workbookContentId1": "sentinel-SecurityScorecardWorkbook",
     "workbookId1": "[resourceId('Microsoft.Insights/workbooks', variables('workbookContentId1'))]",
     "workbookTemplateSpecName1": "[concat(parameters('workspace'),'-wb-',uniquestring(variables('_workbookContentId1')))]",
     "_workbookContentId1": "[variables('workbookContentId1')]",
@@ -84,8 +84,8 @@
         "hidden-sentinelContentType": "Workbook"
       },
       "properties": {
-        "description": "SecurityScorecard Cybersecurity Ratings Workbook with template",
-        "displayName": "SecurityScorecard Cybersecurity Ratings workbook template"
+        "description": "SecurityScorecard Workbook with template",
+        "displayName": "SecurityScorecard workbook template"
       }
     },
     {
@@ -115,7 +115,7 @@
               "kind": "shared",
               "apiVersion": "2021-08-01",
               "metadata": {
-                "description": "This Workbook provides immediate insight into the data coming from SecurityScorecard’s three Sentinel data connectors: SecurityScorecard Cybersecurity Ratings, SecurityScorecard Cybersecurity Ratings - Factors, and SecurityScorecard Cybersecurity Ratings - Issues."
+                "description": "This Workbook provides immediate insight into the data coming from SecurityScorecard’s three Sentinel data connectors: SecurityScorecard Cybersecurity Ratings, SecurityScorecard Cybersecurity Ratings - Factors, and SecurityScorecard Cybersecurity Ratings - Issues. Instantly view scores and top issues for your company, or gain security risk insight into the posture of your vendors or suppliers. Browse through actionable cybersecurity information and get inspiration for all of the use cases SecurityScorecard’s data can provide."
               },
               "properties": {
                 "displayName": "[parameters('workbook1-name')]",
@@ -130,14 +130,14 @@
               "apiVersion": "2022-01-01-preview",
               "name": "[concat(parameters('workspace'),'/Microsoft.SecurityInsights/',concat('Workbook-', last(split(variables('workbookId1'),'/'))))]",
               "properties": {
-                "description": "@{workbookKey=SecurityScorecardWorkbook; logoFileName=; description=This Workbook provides immediate insight into the data coming from SecurityScorecard’s three Sentinel data connectors: SecurityScorecard Cybersecurity Ratings, SecurityScorecard Cybersecurity Ratings - Factors, and SecurityScorecard Cybersecurity Ratings - Issues.; dataTypesDependencies=System.Object[]; dataConnectorsDependencies=System.Object[]; previewImagesFileNames=System.Object[]; version=1.0.0; title=SecurityScorecard; templateRelativePath=SecurityScorecardWorkbook.json; subtitle=; provider=SecurityScorecard}.description",
+                "description": ".description",
                 "parentId": "[variables('workbookId1')]",
                 "contentId": "[variables('_workbookContentId1')]",
                 "kind": "Workbook",
                 "version": "[variables('workbookVersion1')]",
                 "source": {
                   "kind": "Solution",
-                  "name": "SecurityScorecard Cybersecurity Ratings",
+                  "name": "SecurityScorecard",
                   "sourceId": "[variables('_solutionId')]"
                 },
                 "author": {
@@ -158,28 +158,29 @@
                       "kind": "DataType"
                     },
                     {
+                      "contentId": "SecurityScorecardFactor",
+                      "kind": "DataConnector"
+                    },
+                    {
                       "contentId": "SecurityScorecardIssues_CL",
                       "kind": "DataType"
+                    },
+                    {
+                      "contentId": "SecurityScorecardIssue",
+                      "kind": "DataConnector"
                     },
                     {
                       "contentId": "SecurityScorecardRatings_CL",
                       "kind": "DataType"
                     },
                     {
-                      "contentId": "SecurityScorecardFactorAzureFunctions",
-                      "kind": "DataConnector"
-                    },
-                    {
-                      "contentId": "SecurityScorecardIssueAzureFunctions",
-                      "kind": "DataConnector"
-                    },
-                    {
-                      "contentId": "SecurityScorecardRatingsAzureFunctions",
+                      "contentId": "SecurityScorecardRatings",
                       "kind": "DataConnector"
                     }
                   ]
                 }
-              }
+              },
+              "description": "This Workbook provides immediate insight into the data coming from SecurityScorecard’s three Sentinel data connectors: SecurityScorecard Cybersecurity Ratings, SecurityScorecard Cybersecurity Ratings - Factors, and SecurityScorecard Cybersecurity Ratings - Issues. Instantly view scores and top issues for your company, or gain security risk insight into the posture of your vendors or suppliers. Browse through actionable cybersecurity information and get inspiration for all of the use cases SecurityScorecard’s data can provide."
             }
           ]
         }
@@ -195,8 +196,8 @@
         "hidden-sentinelContentType": "DataConnector"
       },
       "properties": {
-        "description": "SecurityScorecard Cybersecurity Ratings data connector with template",
-        "displayName": "SecurityScorecard Cybersecurity Ratings template"
+        "description": "SecurityScorecard data connector with template",
+        "displayName": "SecurityScorecard template"
       }
     },
     {
@@ -212,7 +213,7 @@
         "[resourceId('Microsoft.Resources/templateSpecs', variables('dataConnectorTemplateSpecName1'))]"
       ],
       "properties": {
-        "description": "SecurityScorecard Cybersecurity Ratings data connector with template version 2.0.0",
+        "description": "SecurityScorecard data connector with template version 2.0.0",
         "mainTemplate": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "[variables('dataConnectorVersion1')]",
@@ -358,7 +359,7 @@
                 "version": "[variables('dataConnectorVersion1')]",
                 "source": {
                   "kind": "Solution",
-                  "name": "SecurityScorecard Cybersecurity Ratings",
+                  "name": "SecurityScorecard",
                   "sourceId": "[variables('_solutionId')]"
                 },
                 "author": {
@@ -392,7 +393,7 @@
         "version": "[variables('dataConnectorVersion1')]",
         "source": {
           "kind": "Solution",
-          "name": "SecurityScorecard Cybersecurity Ratings",
+          "name": "SecurityScorecard",
           "sourceId": "[variables('_solutionId')]"
         },
         "author": {
@@ -545,8 +546,8 @@
         "hidden-sentinelContentType": "DataConnector"
       },
       "properties": {
-        "description": "SecurityScorecard Cybersecurity Ratings data connector with template",
-        "displayName": "SecurityScorecard Cybersecurity Ratings template"
+        "description": "SecurityScorecard data connector with template",
+        "displayName": "SecurityScorecard template"
       }
     },
     {
@@ -562,7 +563,7 @@
         "[resourceId('Microsoft.Resources/templateSpecs', variables('dataConnectorTemplateSpecName2'))]"
       ],
       "properties": {
-        "description": "SecurityScorecard Cybersecurity Ratings data connector with template version 2.0.0",
+        "description": "SecurityScorecard data connector with template version 2.0.0",
         "mainTemplate": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "[variables('dataConnectorVersion2')]",
@@ -708,7 +709,7 @@
                 "version": "[variables('dataConnectorVersion2')]",
                 "source": {
                   "kind": "Solution",
-                  "name": "SecurityScorecard Cybersecurity Ratings",
+                  "name": "SecurityScorecard",
                   "sourceId": "[variables('_solutionId')]"
                 },
                 "author": {
@@ -742,7 +743,7 @@
         "version": "[variables('dataConnectorVersion2')]",
         "source": {
           "kind": "Solution",
-          "name": "SecurityScorecard Cybersecurity Ratings",
+          "name": "SecurityScorecard",
           "sourceId": "[variables('_solutionId')]"
         },
         "author": {
@@ -895,8 +896,8 @@
         "hidden-sentinelContentType": "DataConnector"
       },
       "properties": {
-        "description": "SecurityScorecard Cybersecurity Ratings data connector with template",
-        "displayName": "SecurityScorecard Cybersecurity Ratings template"
+        "description": "SecurityScorecard data connector with template",
+        "displayName": "SecurityScorecard template"
       }
     },
     {
@@ -912,7 +913,7 @@
         "[resourceId('Microsoft.Resources/templateSpecs', variables('dataConnectorTemplateSpecName3'))]"
       ],
       "properties": {
-        "description": "SecurityScorecard Cybersecurity Ratings data connector with template version 2.0.0",
+        "description": "SecurityScorecard data connector with template version 2.0.0",
         "mainTemplate": {
           "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
           "contentVersion": "[variables('dataConnectorVersion3')]",
@@ -1058,7 +1059,7 @@
                 "version": "[variables('dataConnectorVersion3')]",
                 "source": {
                   "kind": "Solution",
-                  "name": "SecurityScorecard Cybersecurity Ratings",
+                  "name": "SecurityScorecard",
                   "sourceId": "[variables('_solutionId')]"
                 },
                 "author": {
@@ -1092,7 +1093,7 @@
         "version": "[variables('dataConnectorVersion3')]",
         "source": {
           "kind": "Solution",
-          "name": "SecurityScorecard Cybersecurity Ratings",
+          "name": "SecurityScorecard",
           "sourceId": "[variables('_solutionId')]"
         },
         "author": {
@@ -1247,7 +1248,7 @@
         "parentId": "[variables('_solutionId')]",
         "source": {
           "kind": "Solution",
-          "name": "SecurityScorecard Cybersecurity Ratings",
+          "name": "SecurityScorecard",
           "sourceId": "[variables('_solutionId')]"
         },
         "author": {

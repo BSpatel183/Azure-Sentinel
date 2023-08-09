@@ -118,7 +118,7 @@ class Utils:
         required_params = {
             "BaseURL": consts.COFENSE_BASE_URL,
             "AzureClientId": consts.AZURE_CLIENT_ID,
-            "AzureClientSecret": self.f.encrypt(consts.AZURE_CLIENT_SECRET),
+            "AzureClientSecret": "" if consts.AZURE_CLIENT_SECRET == None or consts.AZURE_CLIENT_SECRET == "" else self.f.encrypt(consts.AZURE_CLIENT_SECRET),
             "AzureTenantId": consts.AZURE_TENANT_ID,
             "AzureResourceGroup": consts.AZURE_RESOURCE_GROUP,
             "AzureWorkspaceName": consts.AZURE_WORKSPACE_NAME,
@@ -126,7 +126,7 @@ class Utils:
             "ConnectionString": consts.CONNECTION_STRING,
             "Schedule": consts.SCHEDULE,
             "Cofense_username": consts.COFENSE_USERNAME,
-            "Cofense_password": self.f.encrypt(consts.COFENSE_PASSWORD),
+            "Cofense_password": "" if consts.COFENSE_PASSWORD == None or consts.COFENSE_PASSWORD == "" else self.f.encrypt(consts.COFENSE_PASSWORD),
             "LogLevel": consts.LOG_LEVEL,
             "WorkspaceID": consts.WORKSPACE_ID,
             "WorkspaceKey": consts.WORKSPACE_KEY,

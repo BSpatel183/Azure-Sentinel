@@ -114,7 +114,7 @@ class Utils:
         required_params = {
             "BaseURL": consts.COFENSE_BASE_URL,
             "AzureClientId": consts.AZURE_CLIENT_ID,
-            "AzureClientSecret": consts.AZURE_CLIENT_SECRET,
+            "AzureClientScrt": consts.AZURE_CLIENT_SECRET,
             "AzureTenantId": consts.AZURE_TENANT_ID,
             "AzureResourceGroup": consts.AZURE_RESOURCE_GROUP,
             "AzureWorkspaceName": consts.AZURE_WORKSPACE_NAME,

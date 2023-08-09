@@ -6,10 +6,14 @@ from .logger import applogger
 from ..SharedCode import consts
 import time
 from requests.compat import quote_plus
+from cryptography.fernet import Fernet
 
 
 class Utils:
     """This class contains helper methods."""
+
+    key = Fernet.generate_key()
+    f = Fernet(key)
 
     def __init__(self, azure_function_name) -> None:
         """Initialize instance variable for class.
@@ -114,7 +118,7 @@ class Utils:
         required_params = {
             "BaseURL": consts.COFENSE_BASE_URL,
             "AzureClientId": consts.AZURE_CLIENT_ID,
-            "AzureClientScrt": consts.AZURE_CLIENT_SECRET,
+            "AzureClientSecret": self.f.encrypt(consts.AZURE_CLIENT_SECRET),
             "AzureTenantId": consts.AZURE_TENANT_ID,
             "AzureResourceGroup": consts.AZURE_RESOURCE_GROUP,
             "AzureWorkspaceName": consts.AZURE_WORKSPACE_NAME,

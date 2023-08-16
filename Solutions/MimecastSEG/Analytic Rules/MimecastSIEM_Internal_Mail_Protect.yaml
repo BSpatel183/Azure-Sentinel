@@ -15,7 +15,6 @@ triggerThreshold: 0
 suppressionDuration: 5h
 suppressionEnabled: false
 tactics:
-- LateralMovement
 - Persistence
 - Exfiltration
 incidentConfiguration:

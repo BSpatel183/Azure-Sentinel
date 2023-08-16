@@ -63,7 +63,7 @@ def main(mytimer: func.TimerRequest, checkpoint: str) -> str:
         if parsed_logs:
             workspace_id = os.environ['log_analytics_workspace_id']
             workspace_key = os.environ['log_analytics_workspace_key']
-            log_type = 'MimecastSEG'
+            log_type = 'MimecastSIEM'
             body = json.dumps(parsed_logs)
             azure_monitor_collector.post_data(workspace_id, workspace_key, body, log_type)
         else:

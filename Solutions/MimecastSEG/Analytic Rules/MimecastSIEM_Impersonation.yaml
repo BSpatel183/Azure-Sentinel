@@ -15,10 +15,7 @@ triggerThreshold: 0
 suppressionDuration: 5h
 suppressionEnabled: false
 tactics:
-- PreAttack
 - Discovery
-- LateralMovement
-- Collection
 incidentConfiguration:
   createIncident: true
   groupingConfiguration:

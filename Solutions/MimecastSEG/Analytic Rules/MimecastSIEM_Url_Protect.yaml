@@ -15,8 +15,6 @@ triggerThreshold: 0
 suppressionDuration: 5h
 suppressionEnabled: false
 tactics:
-- PreAttack
-- InitialAccess
 - Discovery
 - Execution
 incidentConfiguration:

@@ -353,19 +353,23 @@
           "seriesLabelSettings": [
             {
               "seriesName": "mail_process_accepted",
-              "label": "Accepted"
+              "label": "Accepted",
+              "color": "green"
             },
             {
               "seriesName": "mail_process_held",
-              "label": "Held"
+              "label": "Held",
+              "color": "brown"
             },
             {
               "seriesName": "mail_process_sandboxed",
-              "label": "Sandboxed"
+              "label": "Sandboxed",
+              "color": "turquoise"
             },
             {
               "seriesName": "mail_process_retried",
-              "label": "Retries"
+              "label": "Retries",
+              "color": "pink"
             }
           ]
         }
@@ -482,15 +486,18 @@
                       "seriesLabelSettings": [
                         {
                           "seriesName": "mail_delivery_delivered",
-                          "label": "Delivered with TLS"
+                          "label": "Delivered with TLS",
+                          "color": "green"
                         },
                         {
                           "seriesName": "mail_delivery_delivered_notls",
-                          "label": "Delivered without TLS"
+                          "label": "Delivered without TLS",
+                          "color": "orange"
                         },
                         {
                           "seriesName": "mail_delivery_not_delivered",
-                          "label": "Undelivered"
+                          "label": "Undelivered",
+                          "color": "red"
                         }
                       ]
                     }

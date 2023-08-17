@@ -47,8 +47,7 @@ def main(mytimer: func.TimerRequest, checkpoint: str) -> str:
             success_response = response_helper.parse_siem_success_response(response, file_format)
             has_more_logs, next_token = response_helper.get_siem_next_token(response)
             parsed_logs.extend(siem_parser.parse(logs=success_response))
-        else:
-            checkpoint = model.payload['data'][0]['token']
+        checkpoint = model.payload['data'][0]['token']
         SIEMResponseHelper.response = []
 
     except MimecastRequestError as e:

@@ -16,6 +16,8 @@ suppressionDuration: 5h
 suppressionEnabled: false
 tactics:
 - Discovery
+- LateralMovement
+- Collection
 incidentConfiguration:
   createIncident: true
   groupingConfiguration:

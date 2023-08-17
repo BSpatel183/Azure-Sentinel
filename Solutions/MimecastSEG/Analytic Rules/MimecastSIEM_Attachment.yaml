@@ -18,6 +18,7 @@ tactics:
 - Collection
 - Exfiltration
 - Discovery
+- InitialAccess
 - Execution
 incidentConfiguration:
   createIncident: true

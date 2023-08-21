@@ -7,7 +7,7 @@ requiredDataConnectors:
     dataTypes:
       - MimecastTTPImpersonation_CL
 enabled: true
-query: union MimecastTTPImpersonation_CL| where taggedMalicious_b == true;
+query: MimecastTTPImpersonation_CL| where taggedMalicious_b == true;
 queryFrequency: 5m
 queryPeriod: 15m
 triggerOperator: gt
@@ -18,7 +18,6 @@ tactics:
 - Exfiltration
 - Collection
 - Discovery
-- PreAttack
 alertRuleTemplateName:
 incidentConfiguration:
   createIncident: true

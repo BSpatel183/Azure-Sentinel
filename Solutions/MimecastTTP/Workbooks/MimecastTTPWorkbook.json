@@ -392,7 +392,7 @@
                         "type": 3,
                         "content": {
                           "version": "KqlItem/1.0",
-                          "query": "MimecastTTPUrl_CL\n| where scanResult_s == \"malicious\" and advancedPhishingResult_CredentialTheftBrands_s != \"\"\n| summarize count() by advancedPhishingResult_CredentialTheftBrands_s\n",
+                          "query": "MimecastTTPUrl_CL\n| extend advancedPhishingResult_CredentialTheftBrands = column_ifexists(\"advancedPhishingResult_CredentialTheftBrands_s\",\"\")\n| where scanResult_s == \"malicious\" and advancedPhishingResult_CredentialTheftBrands != \"\"\n| summarize count() by advancedPhishingResult_CredentialTheftBrands",
                           "size": 3,
                           "timeContext": {
                             "durationMs": 2592000000

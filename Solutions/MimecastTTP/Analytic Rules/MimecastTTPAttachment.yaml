@@ -7,7 +7,7 @@ requiredDataConnectors:
     dataTypes:
       - MimecastTTPAttachment_CL
 enabled: true
-query: union MimecastTTPAttachment_CL| where result_s <> "safe";
+query: MimecastTTPAttachment_CL| where result_s <> "safe";
 queryFrequency: 5m
 queryPeriod: 15m
 triggerOperator: gt
@@ -16,7 +16,6 @@ suppressionDuration: 5h
 suppressionEnabled: false
 tactics:
 - InitialAccess
-- PreAttack
 - Discovery
 alertRuleTemplateName:
 incidentConfiguration:

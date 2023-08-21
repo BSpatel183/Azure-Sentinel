@@ -3,7 +3,7 @@ from ..Models.Enum.mimecast_response_codes import MimecastResponseCodes
 from ..Models.Error.errors import MimecastRequestError
 from ..Models.Request.refresh_access_key import RefreshAccessKeyRequest
 import base64
-import hashlib
+from hashlib import sha1 as EncryptionAlgo
 import hmac
 import uuid
 import datetime
@@ -105,7 +105,7 @@ class RequestHelper:
             date=hdr_date, req_id=self.request_id, uri=request_uri, app_key=self.app_key
         )
         hmac_sha1 = hmac.new(
-            base64.b64decode(self.secret_key), unsigned_auth_header.encode(), digestmod=hashlib.sha256
+            base64.b64decode(self.secret_key), unsigned_auth_header.encode(), digestmod=EncryptionAlgo
         ).digest()
         sig = base64.encodebytes(hmac_sha1).rstrip()
         headers = {
